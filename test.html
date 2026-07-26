@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah Grocery</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="icon" type="image/x-icon" href="Favicon- Noah Grocery.ico">
+</head>
+<body>
+
+    <main>
+        <header>      
+            <div class="container">
+                <img src="Noah Grocery Logo.png" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="cart.html">Cart(0)</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <section id="banner">
+            <div class="container">
+                <center>
+                    <div class="banner-text">
+                        <h2>Welcome to Noah Grocery</h2>
+                        <p>Your one-stop shop for fresh and quality groceries at great prices.</p>
+                    </div>
+                    <a href="shop.html" class="button">Shop Now</a>
+                </center>
+            </div>
+        </section>
+
+        <section id="featured">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="products" id="featuredProductsContainer">
+                    <!-- Featured products will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+       
+        <section id="footer">
+            <div class="container">
+                <h2>Subscribe to Our Newsletter</h2>
+                <form>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address">
+                    <button class="subscribe">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Noah Grocery. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        const productsContainer = document.getElementById('featuredProductsContainer');
+
+        // Fetch products from shop.html
+        fetch('shop.html')
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const shopDoc = parser.parseFromString(html, 'text/html');
+                const products = Array.from(shopDoc.querySelectorAll('products'));
+
+                // Shuffle the products array
+                const shuffledProducts = shuffle(products).slice(0, 3);
+
+                // Initialize featured products on page load
+                renderProducts(shuffledProducts);
+            })
+            .catch(error => console.error('Error fetching shop.html:', error));
+
+        // Render products function
+        function renderProducts(products) {
+            productsContainer.innerHTML = '';
+            products.forEach((product) => {
+                productsContainer.appendChild(product.cloneNode(true));
+            });
+        }
+
+        // Shuffle array function
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
+        }
+    </script>
+
+</body>
+</html>

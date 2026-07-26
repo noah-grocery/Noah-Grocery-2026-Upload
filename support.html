@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Help Center | Noah Grocery</title>
+	<link rel="stylesheet" type="text/css" href="css/support.css">
+    <link rel="icon" type="image/x-icon" href="Favicon- Noah Grocery.ico">
+    
+</head>
+<body>
+
+	<main>
+        <header>
+		<div class="container">
+			<img src="Noah Grocery Logo.png" class="logo">
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="shop.html">Shop</a></li>
+					<li><a href="support.html">Support</a></li>
+					<li><a href="cart.html" id="cartLink">Cart(0)</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+        
+	
+
+       
+		<section id="footer">
+			<div class="container">
+				<h2>Subscribe to Our Newsletter</h2>
+				<form>
+					<input type="email" id="email" name="email" placeholder="Enter your email address">
+					<button class="subscribe">Subscribe</button>
+				</form>
+			</div>
+		
+         
+
+	<footer>
+		
+			<p>&copy; 2023 Noah Grocery. All rights reserved.</p>
+	</footer>
+        </section>
+           </main>
+
+<!-- Add this script to the head section of shop.html and cart.html -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cartLink = document.getElementById('cartLink');
+        updateCartCount();
+
+        function updateCartCount() {
+            // Fetch the cart items from local storage or initialize an empty array
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartCount = cartItems.length;
+
+            // Update cart count in the navbar
+            cartLink.textContent = `Cart(${cartCount})`;
+        }
+    });
+</script>
+
+
+</body>
+</html>

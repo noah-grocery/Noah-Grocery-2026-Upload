@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Noah Grocery</title>
+    <link rel="stylesheet" type="text/css" href="css/shop.css">
+    <link rel="icon" type="image/x-icon" href="Favicon- Noah Grocery.ico">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="Noah Grocery Logo.png" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="cart.html" id="cartLink">Cart(0)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="shop-items">
+            <div class="container">
+                <br><br><br>
+                <div class="products">
+                    <!-- Product items will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="container">
+                <h2>Subscribe to Our Newsletter</h2>
+                <form>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address">
+                    <button class="subscribe">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Noah Grocery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to get products
+        function getProducts() {
+            return [
+                {
+                    name: 'Non-Fat Milk',
+                    price: '$3.05',
+                    image: 'data:image/jpeg;base64,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',
+                    description: 'Non-Fat Milk'
+                },
+                {
+                    name: 'Product 2',
+                    price: '$15.00',
+                    image: 'product2.jpg',
+                },
+                {
+                    name: 'Product 3',
+                    price: '$20.00',
+                    image: 'product3.jpg',
+                },
+                // Add more products as needed
+            ];
+        }
+
+        const productsContainer = document.querySelector('.products');
+        const cartLink = document.getElementById('cartLink');
+        const cartItemsList = document.getElementById('cartItems');
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModalButton = document.querySelector('.close');
+
+        // Load cart items from local storage or initialize an empty array
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Initialize cart count
+        updateCartCount(cartItems.length);
+
+        const products = getProducts();
+
+        renderProducts(products);
+
+        function renderProducts(products) {
+            productsContainer.innerHTML = '';
+            products.forEach((product) => {
+                const productHTML = `
+                    <div class="product">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>${product.price}</p>
+                        <button onclick="addToCart('${product.name}')">Add to Cart</button>
+                    </div>
+                `;
+                productsContainer.innerHTML += productHTML;
+            });
+        }
+
+        function addToCart(productName) {
+            // Add the product to the cart
+            cartItems.push(productName);
+            // Update cart count
+            updateCartCount(cartItems.length);
+            // Update the cart link text
+            cartLink.textContent = `Cart(${cartItems.length})`;
+            // Save cart items to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+        // ... (your existing code) ...
+
+        function updateCartCount(count) {
+            // Update cart count in the navbar
+            cartLink.textContent = `Cart(${count})`;
+        }
+    </script>
+</body>
+</html>

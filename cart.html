@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Noah Grocery</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="icon" type="image/x-icon" href="Favicon- Noah Grocery.ico">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="Noah Grocery Logo.png" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="cart.html" id="cartLink">Cart(0)</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </header>
+    <main>
+        <br><br><br>
+        <section id="cart-items">
+            <div class="container">
+                <h2>Your Shopping Cart</h2>
+                <ul id="cartItems"></ul>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <section id="footer">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+                <button class="subscribe">Subscribe</button>
+            </form>
+        </div>
+    
+     
+
+<footer>
+    
+        <p>&copy; 2023 Noah Grocery. All rights reserved.</p>
+</footer>
+    </section>
+       </main>
+
+       <script src="javascript/cart.js"></script>
+
+</body>
+</html>
